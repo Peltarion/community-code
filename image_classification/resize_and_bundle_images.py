@@ -36,12 +36,29 @@ parser.add_argument('--new_width', default=300,
                     help="Width to resize all images to")
 parser.add_argument('--new_height', default=200,
                     help="Height to resize all images to")
-
+parser.add_argument('--crop_square', default=False,
+                    help="Crop to square", action='store_true')
 
 def zipdir(path, ziph):
     for root, dirs, files in os.walk(path):
         for file in files:
             ziph.write(os.path.join(root, file))
+
+
+def crop(im):
+    width, height = im.size
+    if width > height:
+        y1 = 0
+        y2 = height
+        x1 = round((width - height) / 2)
+        x2 = width - round((width - height) / 2)
+    else:
+        y1 = round((height - width) / 2)
+        y2 = height - round((height - width) / 2)
+        x1 = 0
+        x2 = width
+    crop_im = im.crop((x1,y1,x2,y2))
+    return crop_im
 
 
 def main():
@@ -74,6 +91,8 @@ def main():
         if im.mode not in ['RGB', 'RGBA']:
             continue
         im = im.convert('RGB')
+        if args.crop_square == True:
+            im = crop(im)
         new_img = im.resize((int(args.new_width), int(args.new_height)))
         new_img_rel_path = i_rel_path.split('.')[0] + "_resized." + img_type
         new_img_path = os.path.join(args.output_path, new_img_rel_path)
