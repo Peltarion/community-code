@@ -10,9 +10,11 @@ The Community-code repo includes different kinds of code that helps you integrat
 
 For more information about the tutorials, see the [Knowledge Center tutorials](https://peltarion.com/knowledge-center/tutorials).
 
-## REST API examples
-* Peltarion_deployment_curl_examples.ipynb - Jupyter Notebook demonstrating use of deployment API via Curl.
-* Peltarion_deployment_JSON_examples.ipynb - Jupyter Notebook demonstrating use of deployment API with HTTP requests and JSON body content.
+## Deplyment API examples
+* Peltarion_deployment_curl_examples.ipynb - Jupyter Notebook demonstrating use of the deployment API via Curl.
+* Peltarion_deployment_JSON_examples.ipynb - Jupyter Notebook demonstrating use of the deployment API with HTTP requests and JSON body content.
+ 
+*Note:* You may use [Sidekick](https://github.com/Peltarion/sidekick) as an easy-to-use anlternative to direct HTTP calls for sending data to your deployed models. For example code, see the tutorial resources, e.g., car_damage_classification, skin_lesion_semgentation, and fruit_classification.  
 
 Other resources
 * images - Images used in code examples.
