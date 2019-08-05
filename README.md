@@ -8,6 +8,7 @@ The Community-code repo includes different kinds of code that helps you integrat
 * [skin_lesion_segmentation](./skin_lesion_segmentation) - Dataset preprocessing and off-platform evaluation for the upcoming tutorial "Skin lesion segmentation".
 * [yeast_dna](./yeast_dna) - Dataset preprocessing and off-platform evaluation for the tutorial "Gene expression prediction".
 * [tagger-tutorial](./tagger-tutorial) - Dataset preprocessing and model testing for the tutorial "Predicting mood from raw audio data".
+* [predict_california_house_prices](./predict_california_house_prices) - Model testing for the tutorial "Predict California house prices".
 
 
 For more information about the tutorials, see the [Knowledge Center tutorials](https://peltarion.com/knowledge-center/tutorials).
