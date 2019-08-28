@@ -4,10 +4,11 @@ The Community-code repo includes different kinds of code that helps you integrat
 
 ## Tutorial resources
 * [car_damage_classification](./car_damage_classification) - Dataset preprocessing and off-platform evaluation for the tutorial "Classifying car damages".
+* [denoising_images](./denoising_images) - Dataset preprocessing and off-platform evaluation for the tutorial "Denoising images".
 * [fruit_classification](./fruit_classification) - Dataset preprocessing and off-platform evaluation for the upcoming tutorial "Classifying fruits".
 * [movie_review_sentiment](./movie_review_sentiment) - Dataset preprocessing for the tutorial "Movie review sentiment analysis".
 * [predict_california_house_prices](./predict_california_house_prices) - Model testing for the tutorial "Predict California house prices".
-* [skin_lesion_segmentation](./skin_lesion_segmentation) - Dataset preprocessing and off-platform evaluation for the upcoming tutorial "Skin lesion segmentation".
+* [skin_lesion_segmentation](./skin_lesion_segmentation) - Dataset preprocessing and off-platform evaluation for the tutorial "Skin lesion segmentation".
 * [tagger-tutorial](./tagger-tutorial) - Dataset preprocessing and model testing for the tutorial "Predicting mood from raw audio data".
 * [yeast_dna](./yeast_dna) - Dataset preprocessing and off-platform evaluation for the tutorial "Gene expression prediction".
 
