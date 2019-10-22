@@ -1,0 +1,38 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "images/{name}",
+      "connection": "AZURE_STORAGE_CONNECTION_STRING",
+      "dataType": "binary"
+    },
+    {
+      "type": "blob",
+      "name": "thumbnail",
+      "path": "thumbnails/{name}",
+      "connection": "AZURE_STORAGE_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "$return",
+      "databaseName": "imagesdb",
+      "collectionName": "images",
+      "createIfNotExists": false,
+      "connection": "peltarion-demo-db_DOCUMENTDB",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "documentBefore",
+      "databaseName": "imagesdb",
+      "collectionName": "images",
+      "id": "{name}",
+      "connection": "peltarion-demo-db_DOCUMENTDB",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}

@@ -1,0 +1,30 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "documents",
+      "databaseName": "imagesdb",
+      "collectionName": "images",
+      "connectionStringSetting": "DOCUMENTDB_CONNECTION_STRING",
+      "direction": "in",
+      "Id": "{Query.id}"
+    }
+  ],
+  "disabled": true,
+  "scriptFile": "__init__.py"
+}

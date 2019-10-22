@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "MaisonNeue";
+    src: url("fonts/MaisonNeue-Book.woff2") format("woff2"),
+    url("fonts/MaisonNeue-Book.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MaisonNeue";
+    src: url("fonts/MaisonNeue-BookItalic.woff2") format("woff2"),
+    url("fonts/MaisonNeue-BookItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "MaisonNeue";
+    src: url("fonts/MaisonNeue-Bold.woff2") format("woff2"),
+    url("fonts/MaisonNeue-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MaisonNeue";
+    src: url("fonts/MaisonNeue-BoldItalic.woff2") format("woff2"),
+    url("fonts/MaisonNeue-BoldItalic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "MaisonNeue";
+    src: url("fonts/MaisonNeue-Demi.woff2") format("woff2"),
+    url("fonts/MaisonNeue-Demi.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MaisonNeue";
+    src: url("fonts/MaisonNeue-DemiItalic.woff2") format("woff2"),
+    url("fonts/MaisonNeue-DemiItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "MaisonNeueMono";
+    src: url("fonts/MaisonNeueMono-Regular.woff2") format("woff2"),
+    url("fonts/MaisonNeueMono-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MaisonNeueMono";
+    src: url("fonts/MaisonNeueMono-Italic.woff2") format("woff2"),
+    url("fonts/MaisonNeueMono-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "MaisonNeueMono";
+    src: url("fonts/MaisonNeueMono-Bold.woff2") format("woff2"),
+    url("fonts/MaisonNeueMono-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MaisonNeueMono";
+    src: url("fonts/MaisonNeueMono-BoldItalic.woff2") format("woff2"),
+    url("fonts/MaisonNeueMono-BoldItalic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+}
+
+:root {
+    --font-family: "MaisonNeue", sans-serif;
+    --font-family-mono: "MaisonNeueMono", monospace;
+    --font-family-logo: "Times", sans-serif;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+}
+
+
+html, body {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+a {
+    /*color: var(--secondary-color);*/
+    text-decoration: none;
+}

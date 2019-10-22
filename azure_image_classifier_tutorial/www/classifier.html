@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+    <link rel="stylesheet" href="index.css">
+    <title>Image classifier</title>
+</head>
+<body>
+    <img alt="Peltarion" class="logo"
+         src="assets/peltarion.png"
+         srcset="assets/peltarion@2x.png 2x, ./assets/peltarion@3x.png 3x">
+    <header>
+        <span>Image classifier</span>
+        <br>
+        <span>API tester</span>
+    </header>
+    <main>
+        <form id="form">
+            <div id="setup-section" class="box hidden">
+                <div id="setup-header" class="title">
+                    <h4>Setup</h4>
+                    <img src="assets/arrow.svg" alt="Show setup" class="arrow">
+                </div>
+                <div class="setup-body">
+                    <div id="deployUrl" class="settings-item">
+                        <label for="url">URL</label>
+                        <textarea id="url" class="text-input" spellcheck="false"></textarea>
+                    </div>
+                    <div id="deployToken" class="settings-item">
+                        <label for="token">Token</label>
+                        <textarea id="token" class="text-input" spellcheck="false">88752372-e184-44fa-bdad-4f40a1069e49</textarea>
+                    </div>
+                    <div id="image-settings">
+                        <div id="parameter-settings">
+                            <div class="settings-item">
+                                <label for="image-param-name">Image parameter</label>
+                                <input class="text-input" id="image-param-name" value="Image1" type="text"
+                                       autocomplete="off"
+                                        autocorrect="off">
+                            </div>
+                            <div id="dimensions">
+                                <div class="settings-item">
+                                    <label for="input-width">Width</label>
+                                    <input id="input-width" value="28" type="number">
+                                </div>
+                                <div class="settings-item">
+                                    <label for="input-height">Height</label>
+                                    <input id="input-height" value="28" type="number">
+                                </div>
+                            </div>
+                        </div>
+<!--                         <div id="image-processing" class="settings-item">
+                            <label>Image processing</label>
+                            <div class="buttons-container">
+                                <button id="grayscale-button">
+                                    <img alt="Grayscale" src="assets/grayscale.svg">
+                                    Grayscale
+                                </button>
+                                <button id="tilt-button">
+                                    <img alt="Tilt"
+                                         src="assets/tilt.svg">
+                                    Tilt
+                                </button>
+                                <button id="invert-button">
+                                    <img alt="Invert" src="assets/invert.svg">
+                                    Invert
+                                </button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div id="image-section">
+                <div id="image-preview" class="section">
+                    <canvas id="image-big" width="320" height="320"></canvas>
+                    <img id="drop-icon" src="assets/portrait.svg" alt="Image">
+                    <span class="image-preview-text"></span>
+                    <input id="upload-input" accept="image/*;capture=camera" class="mobile-upload" name="image" type="file">
+                    <button id="upload-img-btn">
+                        <img src="assets/plus.svg" alt="Upload image">
+                    </button>
+                </div>
+                <div id="result-preview" class="section box">
+                    <h4 class="title">Result</h4>
+                    <div id="result"><span>Press </span><img src="assets/redo.svg" alt=""><span> to get result...</span></div>
+                    <canvas id="image-upload"></canvas>
+                    <button id="get-results-btn" disabled>
+                        <img src="assets/redo.svg" alt="Get results">
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <a href="https://peltarion.com" alt="Peltarion" target="_blank">
+            <img alt="Peltarion"
+                 src="assets/peltarion-logo.png"
+                 srcset="assets/peltarion-logo@2x.png 2x, ./assets/peltarion-logo@3x.png 3x">
+            <span>Rethink impossible</span>
+        </a>
+    </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="application/javascript" src="index.js"></script>
+</body>
+</html>

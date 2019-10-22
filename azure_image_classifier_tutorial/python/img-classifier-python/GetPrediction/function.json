@@ -1,0 +1,30 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "myblob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "resized-images/{name}",
+      "connection": ""
+    },
+    {
+      "type": "cosmosDB",
+      "name": "$return",
+      "databaseName": "imagesdb",
+      "collectionName": "images",
+      "createIfNotExists": false,
+      "connectionStringSetting": "DOCUMENTDB_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "imageMetadataInList",
+      "databaseName": "imagesdb",
+      "collectionName": "images",
+      "id": "{name}",
+      "connectionStringSetting": "DOCUMENTDB_CONNECTION_STRING",
+      "direction": "in"
+    }
+  ]
+}
