@@ -1,0 +1,25 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "documentDB",
+      "name": "documents",
+      "databaseName": "imagesdb",
+      "collectionName": "images",
+      "sqlQuery": "select * from c order by c._ts desc",
+      "connection": "peltarion-demo-db_DOCUMENTDB",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
