@@ -104,6 +104,6 @@ python-resize-image==1.1.18
 requests==2.21.0
 requests-oauthlib==1.2.0
 six==1.12.0
-urllib3==1.24.2
+urllib3==1.25.6
 
 git+https://github.com/Peltarion/sidekick#egg=sidekick
