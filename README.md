@@ -7,7 +7,6 @@ The Community-code repo includes different kinds of code that helps you integrat
 * [denoising_images](./denoising_images) - Dataset preprocessing and off-platform evaluation for the tutorial "Denoising images".
 * [fruit_classification](./fruit_classification) - Dataset preprocessing and off-platform evaluation for the tutorial "Classifying fruits".
 * [movie_review_sentiment](./movie_review_sentiment) - Dataset preprocessing for the tutorial "Movie review sentiment analysis".
-* [predict_california_house_prices](./predict_california_house_prices) - Model testing for the tutorial "Predict California house prices".
 * [skin_lesion_segmentation](./skin_lesion_segmentation) - Dataset preprocessing and off-platform evaluation for the tutorial "Skin lesion segmentation".
 * [tagger-tutorial](./tagger-tutorial) - Dataset preprocessing and model testing for the tutorial "Predicting mood from raw audio data".
 * [yeast_dna](./yeast_dna) - Dataset preprocessing and off-platform evaluation for the tutorial "Gene expression prediction".
@@ -17,6 +16,7 @@ For more information about the tutorials, see the [Knowledge Center tutorials](h
 ## Deplyment API examples
 * [Peltarion_deployment_curl_examples.ipynb](./Peltarion_deployment_curl_examples.ipynb) - Jupyter Notebook demonstrating use of the deployment API via Curl.
 * [Peltarion_deployment_JSON_examples.ipynb](./Peltarion_deployment_JSON_examples.ipynb) - Jupyter Notebook demonstrating use of the deployment API with HTTP requests and JSON body content.
+* [predict_california_house_prices](./predict_california_house_prices) - Model API interface for the tutorial "Predict California house prices".
  
 *Note:* You may use [Sidekick](https://github.com/Peltarion/sidekick) as an easy-to-use anlternative to direct HTTP calls for sending data to your deployed models. For example code, see the tutorial resources, e.g., car_damage_classification, skin_lesion_semgentation, and fruit_classification.  
 
