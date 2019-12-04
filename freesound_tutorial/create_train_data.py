@@ -66,8 +66,8 @@ class Pipeline:
         df_all['fname'] = self.data_dir + df_all['fname']
         labels = df_all['labels'].str.get_dummies(',').sort_index(axis=1)
         df_all = pd.concat((df_all, labels), axis=1)
-        df_train = df_all.iloc[12:]
-        df_test = df_all.iloc[:12]
+        df_test = df_all.sample(n = 100)
+        df_train = df_all.drop(df_test.index)
         df_list = [(df_train, 'train'), (df_test, 'test')]
 
         for df, set in df_list:
@@ -85,24 +85,23 @@ class Pipeline:
                 df_new = pd.DataFrame(data)
                 class_labels = list(labels.keys())
                 df_new = df_new.astype({class_labels[i] : np.int64 for i in range(len(class_labels))})
-
                 # Create dataset
                 set_image_format = functools.partial(
                     sidekick.process_image, file_format='png')
+
                 sidekick.create_dataset(
                     os.path.join(self.zip_dir, self.data_name + 'dataset.zip'),
                     df_new,
                     preprocess={'image': set_image_format},
                     progress=True
                 )
-
     @staticmethod
     def parse_args(argv=None):
         argv = argv if argv is not None else sys.argv[1:]
         parser = ArgumentParser(description=__doc__)
         parser.add_argument('--data-dir', help='Base directory of data',
                             default='train_curated/')
-        parser.add_argument('--output-dir', help='Where to stroe the zip file',
+        parser.add_argument('--output-dir', help='Where to stroe the test set',
                             default='freesound_peltarion/')
         parser.add_argument('--data-name', help='Name that explain data',
                             default='base')
