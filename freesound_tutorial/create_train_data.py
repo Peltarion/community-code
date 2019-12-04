@@ -69,26 +69,20 @@ class Pipeline:
         df_list = [(df_train, 'train'), (df_test, 'test')]
 
         for df, set in df_list:
-
-            os.mkdir(self.output_dir + '_' + set)
-            df_new = pd.DataFrame(columns=df.keys())
-            for i in range(df.shape[0]):
+            data = list()
+            for row in df.to_dict('records'):
                 for j in range(self.nbr_of_random_crops):
-                    waw_file = df.iloc[i]['fname']
                     try:
-                        img= self.waw_to_image(waw_file)
-                        img_name = os.path.splitext(os.path.basename(waw_file))[0] + \
-                                   '_' + str(j)
-                        img.save(os.path.join(self.output_dir + '_' + set, img_name + '.png'))
-                        df_new = df_new.append(df.iloc[i])
-                        df_new.iat[-1, 0] =  os.path.join(
-                            self.output_dir + '_' + set, img_name + '.png')
-                    except:
+                        img = self.waw_to_image(row['fname'])
+                        img.format = 'png'
+                        row['image'] = img
+                        data.append(row)
+                    except FileNotFoundError:
                         print("An exception occurred")
-                        print(os.path.join(self.output_dir, img_name + '.png'))
 
-            class_labels = list(df.keys())
-            df_new = df_new.astype({class_labels[i] : np.int64 for i in range(2,len(class_labels))})
+            df_new = pd.DataFrame(data)
+            class_labels = list(labels.keys())
+            df_new = df_new.astype({class_labels[i] : np.int64 for i in range(len(class_labels))})
 
             # Pickle need for train on thresher:
             df_new.to_pickle('dataframe_dupe_'+ str(self.nbr_of_random_crops)
@@ -99,7 +93,6 @@ class Pipeline:
                 sidekick.create_dataset(
                     os.path.join(self.zip_dir, self.data_name + 'dataset.zip'),
                     df_new,
-                    path_columns=['fname'],
                     progress=True
                 )
 
