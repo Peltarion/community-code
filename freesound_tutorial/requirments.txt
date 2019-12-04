@@ -1,0 +1,6 @@
+git+https://github.com/Peltarion/sidekick#egg=sidekick
+requests
+Pillow
+jupyter
+tensorflow
+librosa
