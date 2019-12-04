@@ -1,13 +1,15 @@
+import functools
+import os
+import random
+import sys
 from argparse import ArgumentParser
-import sidekick
+
+import PIL
 import librosa as lr
 import numpy as np
-import PIL
 import pandas as pd
-import os
-import shutil
-import sys
-import random
+import sidekick
+
 
 class Pipeline:
     def __init__(self, argv=None):
@@ -69,30 +71,28 @@ class Pipeline:
         df_list = [(df_train, 'train'), (df_test, 'test')]
 
         for df, set in df_list:
-            data = list()
-            for row in df.to_dict('records'):
-                for j in range(self.nbr_of_random_crops):
-                    try:
-                        img = self.waw_to_image(row['fname'])
-                        img.format = 'png'
-                        row['image'] = img
-                        data.append(row)
-                    except FileNotFoundError:
-                        print("An exception occurred")
-
-            df_new = pd.DataFrame(data)
-            class_labels = list(labels.keys())
-            df_new = df_new.astype({class_labels[i] : np.int64 for i in range(len(class_labels))})
-
-            # Pickle need for train on thresher:
-            df_new.to_pickle('dataframe_dupe_'+ str(self.nbr_of_random_crops)
-                             + str(set) + '.pkl')
-            # Create dataset
             if set == 'train':
+                data = list()
+                for row in df.to_dict('records'):
+                    for j in range(self.nbr_of_random_crops):
+                        try:
+                            img = self.waw_to_image(row['fname'])
+                            row['image'] = img
+                            data.append(row)
+                        except FileNotFoundError:
+                            print("An exception occurred")
+
+                df_new = pd.DataFrame(data)
+                class_labels = list(labels.keys())
+                df_new = df_new.astype({class_labels[i] : np.int64 for i in range(len(class_labels))})
+
                 # Create dataset
+                set_image_format = functools.partial(
+                    sidekick.process_image, file_format='png')
                 sidekick.create_dataset(
                     os.path.join(self.zip_dir, self.data_name + 'dataset.zip'),
                     df_new,
+                    preprocess={'image': set_image_format},
                     progress=True
                 )
 
