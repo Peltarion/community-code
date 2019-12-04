@@ -105,12 +105,13 @@ class Pipeline:
                             default='freesound_peltarion/')
         parser.add_argument('--data-name', help='Name that explain data',
                             default='base')
-        parser.add_argument('--zip_dir', help='Name that explain data',
+        parser.add_argument('--zip-dir', help='Name that explain data',
                             default='peltarion_data')
-        parser.add_argument('--nbr_of_random_crops',
+        parser.add_argument('--nbr-of-random_crops',
                             help='Number of times to randomly crop the images',
                             type=int, default=1)
         return parser.parse_args(argv)
+
 
 if __name__ == '__main__':
     Pipeline().create_data_set()
