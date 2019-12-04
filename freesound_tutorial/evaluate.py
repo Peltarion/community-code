@@ -1,7 +1,6 @@
-import sidekick
-import numpy as np
 import PIL
 import pandas as pd
+import sidekick
 
 
 def evaluate():
@@ -11,8 +10,9 @@ def evaluate():
                         for i in range(10)]
 
     client = sidekick.Deployment(
-        url='https://a.peltarion.com/deployment/ac7c3d9c-e45e-40b7-8249-dcc0dc3e6130/forward',
-        token='7d269cb2-110f-4045-b6d7-4cd643d8b150')
+        url='<url>',
+        token='<token>'
+    )
 
     # MAYBE BETTER WITH LAZY PREDICTION....
     predictions = client.predict_many(data_frame_input)
@@ -34,6 +34,6 @@ def evaluate():
         print('Max predictions: ')
         print(max_pred)
 
+
 if __name__ == '__main__':
     evaluate()
-

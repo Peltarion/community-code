@@ -45,10 +45,12 @@ class Pipeline:
         # Rescale to image
         rescaled_db_mel_spectrogram = (db_mel_spectrogram + 80) / 80 * 255
         # Convert to image format
-        image = PIL.Image.fromarray(rescaled_db_mel_spectrogram.astype(np.uint8))
+        image = PIL.Image.fromarray(
+                rescaled_db_mel_spectrogram.astype(np.uint8))
         image = image.convert('L')
         # Random crop image
-        if image.size[0] < self.desired_size or image.size[1] < self.desired_size:
+        if (image.size[0] < self.desired_size or
+                image.size[1] < self.desired_size):
             new_im = PIL.Image.new("L", (self.desired_size, self.desired_size))
             # Paste in the middle
             new_im.paste(image, ((self.desired_size - image.size[0]) // 2,
@@ -57,8 +59,12 @@ class Pipeline:
             new_im = image
         crop_w = round(random.uniform(0, image.size[0] - self.desired_size))
         crop_h = round(random.uniform(0, image.size[1] - self.desired_size))
-        new_im = new_im.crop(
-            (crop_w, crop_h, self.desired_size + crop_w, self.desired_size + crop_h))
+        new_im = new_im.crop((
+            crop_w,
+            crop_h,
+            self.desired_size + crop_w,
+            self.desired_size + crop_h
+        ))
         return new_im
 
     def create_data_set(self):
@@ -66,7 +72,7 @@ class Pipeline:
         df_all['fname'] = self.data_dir + df_all['fname']
         labels = df_all['labels'].str.get_dummies(',').sort_index(axis=1)
         df_all = pd.concat((df_all, labels), axis=1)
-        df_test = df_all.sample(n = 100)
+        df_test = df_all.sample(n=100)
         df_train = df_all.drop(df_test.index)
         df_list = [(df_train, 'train'), (df_test, 'test')]
 
@@ -83,8 +89,8 @@ class Pipeline:
                             print("An exception occurred")
 
                 df_new = pd.DataFrame(data)
-                class_labels = list(labels.keys())
-                df_new = df_new.astype({class_labels[i] : np.int64 for i in range(len(class_labels))})
+                df_new = df_new.astype({label: np.int64 for label in labels})
+
                 # Create dataset
                 set_image_format = functools.partial(
                     sidekick.process_image, file_format='png')
@@ -95,6 +101,7 @@ class Pipeline:
                     preprocess={'image': set_image_format},
                     progress=True
                 )
+
     @staticmethod
     def parse_args(argv=None):
         argv = argv if argv is not None else sys.argv[1:]
