@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "any-base": "^1.1.0",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "azure-storage": "^2.10.2",
     "form-data": "^2.3.3",
     "jimp": "^0.6.1",
