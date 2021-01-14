@@ -97,7 +97,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{similaritySearchHost}}/deployment/similarity/{{deploymentId}}",
+					"raw": "https://{{similaritySearchHost}}/deployment/similarity/:deploymentId",
 					"protocol": "https",
 					"host": [
 						"{{similaritySearchHost}}"
@@ -105,13 +105,19 @@
 					"path": [
 						"deployment",
 						"similarity",
-						"{{deploymentId}}"
+						":deploymentId"
 					],
 					"query": [
 						{
 							"key": "",
 							"value": "",
 							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "deploymentId",
+							"value": "{{deploymentId}}"
 						}
 					]
 				}
