@@ -14,7 +14,7 @@ Deploy an experiment on the [Peltarion Platform](https://platform.peltarion.com/
 4. In the top-right corner of Postman, select the `Similarity Search` environment in the Environment-dropdown (from the start, it says `No environment`).
 
 ## 3. Manage environment
-1. Click the eye button next to the Environment-dropdown.
+1. Click the eye button :eye: next to the Environment-dropdown.
 2. Click `Edit` to open the _Manage environments_ window.
 3. In a separate window, navigate to the _Deployment view_ on the Peltarion Platform.
 4. Copy the environment variables from the _Deployment view_ to the _CURRENT VALUE_ column in the _Manage environments_ window: 
