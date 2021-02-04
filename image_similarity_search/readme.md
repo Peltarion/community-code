@@ -32,6 +32,8 @@ Deploy an experiment on the [Peltarion Platform](https://platform.peltarion.com/
 
 1. Click `Select file` and pick a local image to test your deployment to find similar images.
 1. Click `Send` and wait ...
-1. Click the `Visualize` tab to see the most similar images in your dataset. The lower the **Distance**, the more similar the image is to your test image according to your deployed model.
+
+## 5. Show results
+Click the `Visualize` tab to see the most similar images in your dataset. The lower the **Distance**, the more similar the image is to your test image according to your deployed model.
 
 ![Image similarity result](ImageSimilarityResult_PA1.png)
