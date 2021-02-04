@@ -16,16 +16,17 @@ Deploy an experiment on the [Peltarion Platform](https://platform.peltarion.com/
 ## 3. Manage environment
 1. Click the eye button next to the Environment-dropdown.
 2. Click `Edit` to open the _Manage environments_ window.
-3. In separate window, navigate to the _Deployment view_ on the Peltarion Platform.
+3. In a separate window, navigate to the _Deployment view_ on the Peltarion Platform.
 4. Copy the environment variables from the _Deployment view_ to the _CURRENT VALUE_ column in the _Manage environments_ window. 
 
-![Environment Variables](img:EnvironmentVariables_PA1.png) 
-- Copy the host address from the `URL` to the `similarySearchHost` field.
-- Copy the deployment ID from end of the `URL` to the `deploymentID` field.
-- Copy the `Token` to the `token` field.
+![Environment Variables](EnvironmentVariables_PA1.png) 
+
+- Copy the similarity search host `address` from the URL to the `similarySearchHost` field, for example, `api.gcp-eu-west-1.platform.peltarion.com`.
+- Copy the deployment `ID` from the end of the URL to the `deploymentID` field, for example, `89896f60-6668-4c01-90ba-39520b317c35`. *!!* Make sure you get all the digits. Some might be hidden in the interface. *!!*
+- Copy the `Token` to the `token` field, for example, `5119ff6b-d85d-44c3-b698-de090c6c8615`.
 
 ## 4. Test your deployment with an image
-1. Click `Collections` and then then POST `Image Similarity Search`.
+1. Click `Collections` and then POST `Image Similarity Search`.
 2. Click the `Body` tab.
 3. Select a local image to test your deployment to find similar images.
 4. Click `Send` and wait....
