@@ -10,8 +10,8 @@ Deploy an experiment on the [Peltarion Platform](https://platform.peltarion.com/
 ## 2. Configure Postman
 1. Download this repository to your computer.
 2. Open the Postman app.
-3. Import both json-files into Postman.
-4. In the top-right corner, select the `Similarity Search` environment in the Environment-dropdown (from the start, it says `No environment`).
+3. Import both json-files from your local version if this repo into Postman.
+4. In the top-right corner of Postman, select the `Similarity Search` environment in the Environment-dropdown (from the start, it says `No environment`).
 
 ## 3. Manage environment
 1. Click the eye button next to the Environment-dropdown.
