@@ -9,16 +9,20 @@ Deploy an experiment on the [Peltarion Platform](https://platform.peltarion.com/
 
 ## 2. Configure Postman
 1. Download this repository to your computer.
-2. Open Postman.
+2. Open the Postman app.
 3. Import both json-files into Postman.
-4. In the top-right corner, select the `Similarity Search` environment in the environment dropdown (from the start it says `No environment`).
+4. In the top-right corner, select the `Similarity Search` environment in the Environment-dropdown (from the start it says `No environment`).
 
-## 3. Setup Postman with your deployment
+## 3. Manage environment
 1. Click the eye button next to the Environment-dropdown.
-2. Click `Edit`.
-3. Navigate to the Deployment view on the Peltarion Platform.
-4. Copy the deployment `URL` and paste it into the `Current value` column and `deploymentID` row.
-5. Copy the `Token` and paste it into the `Current value` column and `token` row.
+2. Click `Edit` to open the _Manage environments_ window.
+3. In separate window, navigate to the _Deployment view_ on the Peltarion Platform.
+4. Copy the environment variables from the _Deployment view_ to the _CURRENT VALUE_ column in the _Manage environments_ window. 
+
+![Environment Variables](img:EnvironmentVariables_PA1.png) 
+- Copy the host address from the `URL` to the `similarySearchHost` field.
+- Copy the deployment ID from end of the `URL` to the `deploymentID` field.
+- Copy the `Token` to the `token` field.
 
 ## 4. Test your deployment with an image
 1. Click `Collections` and then then POST `Image Similarity Search`.
