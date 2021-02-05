@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "a283796d-b230-4678-ab86-57c5e1e86f87",
+		"name": "Similarity Search",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Image Similarity Search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bdfdd31-b2e4-4787-bf2e-df17e68ac06a",
+						"exec": [
+							"var template = `",
+							"        <style>",
+							"            *, *:before, *:after {",
+							"                box-sizing: border-box;",
+							"            }",
+							"",
+							"            .cards {",
+							"                display: grid;",
+							"                grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));",
+							"                grid-gap: 20px;",
+							"            }",
+							"",
+							"            .card {",
+							"                background: white;",
+							"                display: grid;",
+							"                grid-template-rows: repeat(3, max-content);",
+							"                padding: 16px;",
+							"            }",
+							"",
+							"            .card .img {",
+							"                display: flex;",
+							"                justify-content: center;",
+							"            }",
+							"",
+							"            .card .img img {",
+							"                width: auto;",
+							"                height: auto;",
+							"                max-width: 200px;",
+							"            }",
+							"        </style>",
+							"",
+							"        <div class=\"cards\">",
+							"            {{#each response}}",
+							"                <article class=\"card\">",
+							"                    <div class=\"img\">",
+							"                        <img src='data:image/png;base64,{{image}}'/>",
+							"                    </div>",
+							"                    <div class=\"content\">",
+							"                        <b>ID:</b> {{id}} <br />",
+							"                        <b>Distance:</b> {{distance}}",
+							"                    </div>",
+							"                </article>",
+							"            {{/each}}",
+							"        </div>",
+							"`;",
+							"",
+							"// Set visualizer",
+							"pm.visualizer.set(template, {",
+							"    // Pass the response body parsed as JSON as `data`",
+							"    response: pm.response.json().sort(function(a,b) { return a.distance - b.distance; })",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "input",
+							"type": "file",
+							"src": []
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "https://{{similaritySearchHost}}/deployment/similarity/:deploymentId",
+					"protocol": "https",
+					"host": [
+						"{{similaritySearchHost}}"
+					],
+					"path": [
+						"deployment",
+						"similarity",
+						":deploymentId"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "deploymentId",
+							"value": "{{deploymentId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
