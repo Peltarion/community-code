@@ -96,7 +96,7 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "path",
+							"key": "input",
 							"type": "file",
 							"src": []
 						}
