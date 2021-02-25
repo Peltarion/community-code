@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a283796d-b230-4678-ab86-57c5e1e86f87",
+		"_postman_id": "905679d8-f45b-4e68-abfc-e7bb378716e8",
 		"name": "Similarity Search",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2bdfdd31-b2e4-4787-bf2e-df17e68ac06a",
 						"exec": [
 							"var template = `",
 							"        <style>",
@@ -48,10 +47,10 @@
 							"            {{#each response}}",
 							"                <article class=\"card\">",
 							"                    <div class=\"img\">",
-							"                        <img src='data:image/png;base64,{{image}}'/>",
+							"                        <img src='data:image/png;base64,{{features.image}}'/>",
 							"                    </div>",
 							"                    <div class=\"content\">",
-							"                        <b>ID:</b> {{id}} <br />",
+							"                        <b>ID:</b> {{index}} <br />",
 							"                        <b>Distance:</b> {{distance}}",
 							"                    </div>",
 							"                </article>",
@@ -62,7 +61,7 @@
 							"// Set visualizer",
 							"pm.visualizer.set(template, {",
 							"    // Pass the response body parsed as JSON as `data`",
-							"    response: pm.response.json().sort(function(a,b) { return a.distance - b.distance; })",
+							"    response: pm.response.json().similarities",
 							"});"
 						],
 						"type": "text/javascript"
@@ -101,10 +100,7 @@
 							"type": "file",
 							"src": []
 						}
-					],
-					"options": {
-						"formdata": {}
-					}
+					]
 				},
 				"url": {
 					"raw": "https://{{similaritySearchHost}}/deployment/similarity/:deploymentId",
@@ -134,6 +130,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
