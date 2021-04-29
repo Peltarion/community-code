@@ -103,10 +103,10 @@
 					]
 				},
 				"url": {
-					"raw": "https://{{similaritySearchHost}}/deployment/similarity/:deploymentId",
+					"raw": "https://{{similaritySearchApiUrl}}/deployment/similarity/:deploymentId",
 					"protocol": "https",
 					"host": [
-						"{{similaritySearchHost}}"
+						"{{similaritySearchApiUrl}}"
 					],
 					"path": [
 						"deployment",
